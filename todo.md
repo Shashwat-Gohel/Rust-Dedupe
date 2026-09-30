@@ -29,12 +29,12 @@ Rule for every module: write it (AI-assisted), explain it without looking, get q
 - [x] Understand: why chunks vs `read_to_end`? what does memory look like for a 20 GB file?
 
 ## Phase 3: Parallel hashing (2 hr)
-- [ ] Worker pool with `thread::spawn`
-- [ ] Job distribution: `mpsc` channel + `Arc<Mutex<Receiver>>`
-- [ ] Results collected back over a second channel
-- [ ] `--threads N` flag
-- [ ] Verify output is identical to single-threaded
-- [ ] Understand: what do `Send`/`Sync` do here? why `Arc<Mutex<...>>`? how do workers shut down?
+- [x] Worker pool with `thread::spawn`
+- [x] Job distribution: `mpsc` channel + `Arc<Mutex<Receiver>>`
+- [x] Results collected back over a second channel
+- [x] `--threads N` flag
+- [x] Verify output is identical to single-threaded
+- [x] Understand: what do `Send`/`Sync` do here? why `Arc<Mutex<...>>`? how do workers shut down?
 
 ## Phase 4: Reports (1.5 hr)
 - [ ] `--top N` largest files

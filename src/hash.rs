@@ -48,6 +48,7 @@ pub fn hash_file(path: &Path) -> io::Result<blake3::Hash> {
 ///
 /// Only files belonging to size groups with 2 or more files are hashed.
 /// Any read error on an individual file is logged to `stderr` without aborting.
+#[allow(dead_code)]
 pub fn find_duplicates(
     size_candidates: &HashMap<u64, Vec<PathBuf>>,
 ) -> Vec<DuplicateGroup> {
