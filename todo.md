@@ -64,11 +64,12 @@ Rule for every module: write it (AI-assisted), explain it without looking, get q
 
 
 ## Phase 8: Benchmark (1 hr)
-- [ ] Build a realistic test set (thousands of files, some large)
-- [ ] Measure: no size filter vs size filter (hash count and time)
-- [ ] Measure: 1 vs 2 vs 4 vs 8 threads
-- [ ] Record results in a table (use your own numbers only)
-- [ ] Note why speedup flattens (disk I/O)
+- [x] Build a realistic test set (thousands of files, some large)
+- [x] Measure: no size filter vs size filter (hash count and time)
+- [x] Measure: 1 vs 2 vs 4 vs 8 threads
+- [x] Record results in a table (use your own numbers only)
+- [x] Note why speedup flattens (disk I/O)
+
 
 ## Phase 9: README (45 min)
 - [ ] One-paragraph description
