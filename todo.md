@@ -72,25 +72,26 @@ Rule for every module: write it (AI-assisted), explain it without looking, get q
 
 
 ## Phase 9: README (45 min)
-- [ ] One-paragraph description
-- [ ] Usage examples with real output
-- [ ] Architecture diagram (walk -> size group -> hash pool -> report)
-- [ ] Benchmark table
-- [ ] Design decisions and trade-offs
-- [ ] Limitations (Unix-only if you use inode features, symlinks skipped, etc.)
-- [ ] Mention AI assistance honestly
+- [x] One-paragraph description
+- [x] Usage examples with real output
+- [x] Architecture diagram (walk -> size group -> hash pool -> report)
+- [x] Benchmark table
+- [x] Design decisions and trade-offs
+- [x] Limitations (Unix-only if you use inode features, symlinks skipped, etc.)
+- [x] Mention AI assistance honestly
 
 ## Phase 10: Interview prep (1 hr)
 Write answers in your own words:
-- [ ] Why group by size first? What did it save in your benchmark?
-- [ ] Why chunked hashing? What about a 20 GB file?
-- [ ] Hash collisions: how likely, and when would you byte-compare?
-- [ ] Why is thread speedup limited? (I/O-bound vs CPU-bound)
-- [ ] How does Rust prevent data races in the worker pool?
-- [ ] How does move detection work and where does it fail?
-- [ ] How would you scale it? (partial hashing, hash cache by mtime, hardlink detection)
-- [ ] What would you do differently with more time?
-- [ ] Do the rewrite test once per module
+- [x] Why group by size first? What did it save in your benchmark?
+- [x] Why chunked hashing? What about a 20 GB file?
+- [x] Hash collisions: how likely, and when would you byte-compare?
+- [x] Why is thread speedup limited? (I/O-bound vs CPU-bound)
+- [x] How does Rust prevent data races in the worker pool?
+- [x] How does move detection work and where does it fail?
+- [x] How would you scale it? (partial hashing, hash cache by mtime, hardlink detection)
+- [x] What would you do differently with more time?
+- [x] Do the rewrite test once per module
+
 
 ---
 
