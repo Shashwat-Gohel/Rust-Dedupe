@@ -1,6 +1,7 @@
 use std::env;
 use std::path::PathBuf;
 
+mod hash;
 mod walk;
 
 fn main() {
@@ -19,15 +20,42 @@ fn main() {
     let size_groups = walk::group_by_size(scanned_files);
     let duplicate_candidates = walk::filter_candidate_groups(size_groups);
 
+    let candidate_file_count: usize = duplicate_candidates.values().map(|v| v.len()).sum();
     println!(
-        "\nSize groups with potential duplicates (>= 2 files): {}",
-        duplicate_candidates.len()
+        "Candidate groups: {} ({} files to hash)",
+        duplicate_candidates.len(),
+        candidate_file_count
     );
 
-    for (size, paths) in &duplicate_candidates {
-        println!("\n[Size: {} bytes] ({} files)", size, paths.len());
-        for p in paths {
+    println!("\nHashing candidate files...");
+    let duplicate_groups = hash::find_duplicates(&duplicate_candidates);
+
+    println!(
+        "\nFound {} duplicate group(s):",
+        duplicate_groups.len()
+    );
+
+    for (i, group) in duplicate_groups.iter().enumerate() {
+        println!(
+            "\n[Group {}] Size: {} bytes | Hash: {}",
+            i + 1,
+            group.file_size,
+            group.hash.to_hex()
+        );
+        println!(
+            "  Reclaimable: {} bytes ({} copies)",
+            group.reclaimable_bytes(),
+            group.files.len() - 1
+        );
+        for p in &group.files {
             println!("  - {}", p.display());
         }
     }
+
+    let total_reclaimable = hash::total_reclaimable_space(&duplicate_groups);
+    println!(
+        "\nTotal reclaimable space: {} bytes (~{:.2} KB)",
+        total_reclaimable,
+        total_reclaimable as f64 / 1024.0
+    );
 }

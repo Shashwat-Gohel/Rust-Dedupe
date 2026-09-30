@@ -13,20 +13,20 @@ Rule for every module: write it (AI-assisted), explain it without looking, get q
 - [x] Create test folder with known duplicates, nested dirs, empty files, a symlink
 
 ## Phase 1: Directory walk + size grouping (1.5 hr)
-- [ ] Recursive `walk()` collecting `(PathBuf, u64)`
-- [ ] Skip symlinks (`symlink_metadata`)
-- [ ] Report unreadable dirs/files to stderr, keep going
-- [ ] Group by size in `HashMap<u64, Vec<PathBuf>>`, skip 0-byte files
-- [ ] Print groups with more than one file
-- [ ] Understand: why `symlink_metadata`? how does `.entry().or_default()` work? why `&mut Vec`?
+- [x] Recursive `walk()` collecting `(PathBuf, u64)`
+- [x] Skip symlinks (`symlink_metadata`)
+- [x] Report unreadable dirs/files to stderr, keep going
+- [x] Group by size in `HashMap<u64, Vec<PathBuf>>`, skip 0-byte files
+- [x] Print groups with more than one file
+- [x] Understand: why `symlink_metadata`? how does `.entry().or_default()` work? why `&mut Vec`?
 
 ## Phase 2: Hashing (1.5 hr)
-- [ ] Hash a file in fixed chunks (64 KB) with `BufReader` + `blake3::Hasher`
-- [ ] Hash only files in same-size groups
-- [ ] Group by hash, keep groups with more than one file
-- [ ] Compute reclaimable space per group and in total
-- [ ] Handle read errors per file without crashing
-- [ ] Understand: why chunks vs `read_to_end`? what does memory look like for a 20 GB file?
+- [x] Hash a file in fixed chunks (64 KB) with `BufReader` + `blake3::Hasher`
+- [x] Hash only files in same-size groups
+- [x] Group by hash, keep groups with more than one file
+- [x] Compute reclaimable space per group and in total
+- [x] Handle read errors per file without crashing
+- [x] Understand: why chunks vs `read_to_end`? what does memory look like for a 20 GB file?
 
 ## Phase 3: Parallel hashing (2 hr)
 - [ ] Worker pool with `thread::spawn`
