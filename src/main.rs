@@ -4,11 +4,8 @@ use std::time::Duration;
 
 use clap::{Parser, Subcommand};
 
-mod hash;
-mod pool;
-mod report;
-mod snapshot;
-mod walk;
+use dedupe::{hash, pool, report, snapshot, walk};
+
 
 #[derive(Parser, Debug)]
 #[command(

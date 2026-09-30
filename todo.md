@@ -58,9 +58,10 @@ Rule for every module: write it (AI-assisted), explain it without looking, get q
 - [x] Split code into modules: `walk.rs`, `hash.rs`, `pool.rs`, `report.rs`, `snapshot.rs`
 
 ## Phase 7: Testing (1 hr)
-- [ ] Unit tests: size grouping, hash grouping, diff logic
-- [ ] Integration test using a temp directory with known duplicates
-- [ ] Test edge cases: empty dir, unreadable file, symlink, same content in different sizes (should not exist), large file
+- [x] Unit tests: size grouping, hash grouping, diff logic
+- [x] Integration test using a temp directory with known duplicates
+- [x] Test edge cases: empty dir, unreadable file, symlink, same content in different sizes (should not exist), large file
+
 
 ## Phase 8: Benchmark (1 hr)
 - [ ] Build a realistic test set (thousands of files, some large)
