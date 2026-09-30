@@ -1,12 +1,7 @@
 <div align="center">
 
-```
-    ____  ______ ____  __  __ _____  ______
-   / __ \/ ____// __ \/ / / // ___ \/ ____/
-  / / / / __/  / / / / / / // /_/ // __/
- / /_/ / /___ / /_/ / /_/ // ____// /___
-/_____/_____/ \____/\____//_/    /_____/
-```
+# **dedupe**
+
 
 **High-Performance Disk Audit & Deduplication Engine**
 
@@ -22,7 +17,7 @@
 
 ## Overview
 
-**dedupe** is a blazing-fast, memory-efficient file deduplication and disk audit CLI written in Rust. It identifies duplicate files across arbitrarily deep directory trees using parallel BLAKE3 content hashing, generates actionable disk usage reports, and provides cryptographic point-in-time filesystem snapshots with differential auditing.
+**Dedupe** is a blazing-fast, memory-efficient file deduplication and disk audit CLI written in Rust. It identifies duplicate files across arbitrarily deep directory trees using parallel BLAKE3 content hashing, generates actionable disk usage reports, and provides cryptographic point-in-time filesystem snapshots with differential auditing.
 
 > Built for developers, sysadmins, and power users who need accurate, high-speed disk analysis without relying on slow GUI tools or language runtimes.
 
