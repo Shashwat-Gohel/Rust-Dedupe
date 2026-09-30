@@ -37,25 +37,25 @@ Rule for every module: write it (AI-assisted), explain it without looking, get q
 - [x] Understand: what do `Send`/`Sync` do here? why `Arc<Mutex<...>>`? how do workers shut down?
 
 ## Phase 4: Reports (1.5 hr)
-- [ ] `--top N` largest files
-- [ ] Per-directory size aggregation (largest folders)
-- [ ] Breakdown by extension: count + total size
-- [ ] Human-readable sizes (KB/MB/GB)
-- [ ] Optional: stale files (mtime older than N months), empty files/dirs
+- [x] `--top N` largest files
+- [x] Per-directory size aggregation (largest folders)
+- [x] Breakdown by extension: count + total size
+- [x] Human-readable sizes (KB/MB/GB)
+- [x] Optional: stale files (mtime older than N months), empty files/dirs
 
 ## Phase 5: Snapshot and diff (3 hr)
-- [ ] Define `FileEntry { path, size, hash, mtime }` with `serde` derive
-- [ ] `snapshot <path> -o snap.json`
-- [ ] `diff old.json new.json` reports added / removed / modified
-- [ ] Moved-file detection: same hash, different path
-- [ ] Edge case: duplicates sharing a hash when detecting moves
-- [ ] Understand: why hash-based move detection? what breaks with duplicate files?
+- [x] Define `FileEntry { path, size, hash, mtime }` with `serde` derive
+- [x] `snapshot <path> -o snap.json`
+- [x] `diff old.json new.json` reports added / removed / modified
+- [x] Moved-file detection: same hash, different path
+- [x] Edge case: duplicates sharing a hash when detecting moves
+- [x] Understand: why hash-based move detection? what breaks with duplicate files?
 
 ## Phase 6: CLI structure (1 hr)
-- [ ] `clap` subcommands: `scan`, `report`, `snapshot`, `diff`
-- [ ] Shared flags: `--min-size`, `--json`
-- [ ] Clear error messages and non-zero exit codes
-- [ ] Split code into modules: `walk.rs`, `hash.rs`, `pool.rs`, `report.rs`, `snapshot.rs`
+- [x] `clap` subcommands: `scan`, `report`, `snapshot`, `diff`
+- [x] Shared flags: `--min-size`, `--json`
+- [x] Clear error messages and non-zero exit codes
+- [x] Split code into modules: `walk.rs`, `hash.rs`, `pool.rs`, `report.rs`, `snapshot.rs`
 
 ## Phase 7: Testing (1 hr)
 - [ ] Unit tests: size grouping, hash grouping, diff logic

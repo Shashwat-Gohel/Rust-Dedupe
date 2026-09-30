@@ -3,15 +3,26 @@ use std::fs::File;
 use std::io::{self, BufReader, Read};
 use std::path::{Path, PathBuf};
 
+use serde::{Serialize, Serializer};
+
 pub const CHUNK_SIZE: usize = 64 * 1024; // 64 KB chunk size
 
+fn serialize_hash_as_hex<S>(hash: &blake3::Hash, serializer: S) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    serializer.serialize_str(&hash.to_hex())
+}
+
 /// Represents a group of identical files sharing the same content hash and size.
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct DuplicateGroup {
+    #[serde(serialize_with = "serialize_hash_as_hex")]
     pub hash: blake3::Hash,
     pub file_size: u64,
     pub files: Vec<PathBuf>,
 }
+
 
 impl DuplicateGroup {
     /// Reclaimable bytes if keeping 1 original and removing all duplicates.
